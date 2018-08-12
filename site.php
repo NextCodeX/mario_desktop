@@ -7,7 +7,7 @@
  */
 defined('IN_IA') or exit('Access Denied');
 
-class Mario_desktop2ModuleSite extends WeModuleSite {
+class Mario_desktopModuleSite extends WeModuleSite {
 
 	public function doMobileIndex() {
 		//这个操作被定义用来呈现 功能封面

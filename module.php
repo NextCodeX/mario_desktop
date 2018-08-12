@@ -7,7 +7,7 @@
  */
 defined('IN_IA') or exit('Access Denied');
 
-class Mario_desktop2Module extends WeModule {
+class Mario_desktopModule extends WeModule {
 
     public function settingsDisplay($settings) {
         global $_W, $_GPC;

@@ -2,7 +2,7 @@
 <manifest xmlns="http://www.we7.cc" versionCode="">
 	<application setting="true">
 		<name><![CDATA[个性桌面]]></name>
-		<identifie><![CDATA[mario_desktop2]]></identifie>
+		<identifie><![CDATA[mario_desktop]]></identifie>
 		<version><![CDATA[1.11]]></version>
 		<type><![CDATA[services]]></type>
 		<ability><![CDATA[可以自定义设置桌面样式，桌面图标。]]></ability>
