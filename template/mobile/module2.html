@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0057) -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link type="text/css" href="{MODULE_URL}template/resource/module2/style.css" rel="stylesheet">
+    <title>{$settings['sysname']}</title>
+</head>
+<body style="background:#ececec;">
+<div id="main">
+    <div id="nav"><!--导航部分开始-->
+        <div class="left-right"><a href=""><img src="{MODULE_URL}template/resource/module2/home.png" width="25"></a>
+        </div>
+        <div class="title">{$settings['sysname']}</div>
+        <div class="right"><a href=""><img src="{MODULE_URL}template/resource/module2/huiyuan.png" width="25"></a></div>
+    </div><!--导航部分结束-->
+    {loop $classlist $index $row1}
+    <div class="zsmain"><!--中间主要部分-->
+        <div class="fw-big"><p>{$row1['title']}</p>
+            <div class="homemain">
+                <table width="100%" border="0" cellpadding="0" class="one">
+                    <tbody>
+                    <tr>
+                        {loop $list $index2 $row2}
+                        {if $row2['classid']==$row1['id']}
+                        <td width="30"><a href="{$row2['url']}"><img src="{php echo tomedia($row2['img'])}"
+                                                                     width="50"><br>{$row2['title']}</a></td>
+                        {/if}
+                        {/loop}
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+    {/loop}
+        <!--中间主要部分结束-->
+
+    <div style="width:100%; height:100px;"></div>
+
+</div>
+</body>
+</html>

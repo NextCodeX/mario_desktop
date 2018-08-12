@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns="http://www.we7.cc" versionCode="">
+	<application setting="true">
+		<name><![CDATA[个性桌面]]></name>
+		<identifie><![CDATA[mario_desktop2]]></identifie>
+		<version><![CDATA[1.11]]></version>
+		<type><![CDATA[services]]></type>
+		<ability><![CDATA[可以自定义设置桌面样式，桌面图标。]]></ability>
+		<description><![CDATA[可以自定义设置桌面样式，桌面图标。]]></description>
+		<author><![CDATA[mario]]></author>
+		<url><![CDATA[http://www.we7.cc]]></url>
+	</application>
+	<platform>
+		<subscribes>
+		</subscribes>
+		<handles>
+			<message type="text" />
+			<message type="image" />
+			<message type="link" />
+			<message type="subscribe" />
+			<message type="qr" />
+		</handles>
+		<rule embed="true" />
+		<card embed="false" />
+		<supports>
+			<item type="app" />
+			<item type="wxapp" />
+		</supports>
+	</platform>
+	<bindings>
+		<cover>
+			<entry title="个性桌面" do="index" state="" direct="true" />
+		</cover>
+		<menu>
+			<entry title="桌面应用设置" do="setapp" state="" direct="false" />
+			<entry title="管理分类" do="classify" state="" direct="false" />
+		</menu>
+		<page>
+			<entry title="首页" do="/mario_desktop/pages/index/index" state="" direct="" />
+		</page>
+	</bindings>
+	<permissions>
+	</permissions>
+	<install><![CDATA[]]></install>
+	<uninstall><![CDATA[]]></uninstall>
+	<upgrade><![CDATA[]]></upgrade>
+</manifest>

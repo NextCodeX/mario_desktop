@@ -1,0 +1,88 @@
+{template 'common/header'}
+<ul class="nav nav-tabs">
+
+    <li class="active"><a href="{php echo $this->createWebUrl('addapp')}">菜单管理</a></li>
+
+</ul>
+
+<style>
+    th{
+        text-align: center !important;
+    }
+
+    td{
+        text-align: center !important;
+        white-space: normal !important;
+        word-break: break-all !important;
+    }
+</style>
+<a href="{php echo $this->createWebUrl('addapp')}" class="btn btn-success  active" role="button" style="margin-bottom:6px;">添加菜单</a>
+访问URL：{php echo $indexurl}
+<div class="main">
+
+
+
+    <div class="panel panel-default">
+        <div class="panel-body table-responsive">
+            <table class="table table-hover">
+                <thead class="navbar-inner">
+                <tr>
+                    <th width="50">序号</th>
+                    <th>图标</th>
+                    <th>名称</th>
+                    <th>url</th>
+                    <th>位置</th>
+                    <th>状态</th>
+                    <th style="width:200px; text-align:right;">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                {loop $list $row}
+                <tr>
+                    <td>{$row['indexno']}</td>
+                    <td><img src="{php echo tomedia($row['img']);}" width="38" style="border-radius: 3px;"></td>
+                    <td><span class="label label-success">{$row['title']}</span></td>
+                    <td style="width: 60px;"><span class="label label-info">{$row['url']}</span></td>
+                    <td style="width: 60px;"><span class="label label-info">{if $row['type']==1}页面菜单{/if}{if $row['type']==2}底部菜单{/if}</span></td>
+                    <td>
+                        <input type="checkbox" name="status[]" data-id="{$row['id']}" value="{$row['status']}" class="hidden" {if intval($row['status'])==1} checked="checked" {/if}/>
+                    </td>
+                    <td style="text-align:right;">
+                        <a href="{php echo $this->createWebUrl('addapp', array('id' => $row['id']))}" class="btn btn-success btn-sm" title="编辑" data-toggle="tooltip" data-placement="top"><i class="fa fa-edit"> </i></a>
+                        <a href="{php echo $this->createWebUrl($do, array('op' => 'delete', 'id' => $row['id']))}" class="btn btn-warning btn-sm" title="删除" data-toggle="tooltip" data-placement="top" onclick="if(!confirm('删除后将不可恢复，确定删除吗?')) return false;"><i class="fa fa-times"> </i></a>
+                    </td>
+                </tr>
+                {/loop}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {$pager}
+</div>
+
+<script type="text/javascript">
+    $(function(){
+        $('.app-preview').click(function(){
+            return false;
+        });
+        require(['underscore', 'bootstrap.switch'], function() {
+            $(":checkbox[name='status[]']").bootstrapSwitch();
+            $(':checkbox').on('switchChange.bootstrapSwitch', function(e, state){
+                $this = $(this);
+                var id = $(this).data('id');
+                var status = this.checked ? 1 : 0;
+                $.post("{php echo $this->createWeburl($do, array('op' => 'status','forumid'=>$forumid));}", {status:status,id: id}, function(resp){
+                    resp = $.parseJSON(resp);
+                    if(resp.message.errno != 0) {
+                        util.message('操作失败, 请稍后重试.')
+                    } else {
+                        util.message('操作成功', location.href, 'success');
+                    }
+                });
+            });
+        });
+    });
+</script>
+<!--a href="{php echo $this->createWebUrl('qingkong')}" onclick="return confirm('清空后将不可恢复，确定清空吗？')" class="btn btn-danger btn-sm" role="button" style="margin-bottom:6px;">清空海报缓存</a-->
+
+{template 'common/footer'}

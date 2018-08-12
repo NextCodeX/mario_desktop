@@ -1,0 +1,83 @@
+{template 'common/header'}
+<ul class="nav nav-tabs">
+    <li class="active"><a href="JavaScript:;">桌面参数设置</a></li>
+</ul>
+<div class="main">
+
+    <form action="" method="post" class="form-horizontal form" enctype="multipart/form-data" id="form1">
+        <div class="panel panel-default">
+            <div class="panel-heading">参数设置</div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">桌面名称</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="sysname" class="form-control" value="{$settings['sysname']}" />
+                        <div class="help-block">系统名称</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">secret</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="secret" class="form-control" value="{$settings['bgpic']}" />
+                        <div class="help-block">secret</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">分享标题</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="sharetitle" class="form-control" value="{$settings['sharetitle']}" />
+                        <div class="help-block">分享标题</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">分享描述</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="sharedesc" class="form-control" value="{$settings['sharedesc']}" />
+                        <div class="help-block">分享描述</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"> 分享图片</label>
+                    <div class="col-sm-10">
+                        {php echo tpl_form_field_image('shareimg',$settings['shareimg']);}
+                        <div class="help-block">分享图片建议尺寸80*80px</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-2 col-md-3 col-lg-2 control-label">选择主题</label>
+                    <div class="col-sm-8 col-xs-12">
+                        <select class="form-control" name="mtemplate">
+                            {loop $wlist $row}
+
+                            {/loop}
+                            <option value="module1" {if $settings['mtemplate'] == "module1" }selected="selected"{/if}>分类主题1</option>
+                            <option value="module2" {if $settings['mtemplate'] == "module2" }selected="selected"{/if}>分类主题2</option>
+                            <option value="index" {if $settings['mtemplate'] == "index" }selected="selected"{/if}>苹果桌面</option>
+                        </select>
+                        <span class="help-block">选择主题</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"> 背景图片</label>
+                    <div class="col-sm-10">
+                        {php echo tpl_form_field_image('bgpic',$settings['bgpic']);}
+                        <div class="help-block">是适用模板index建议尺寸800*400px</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"> 滚动首图</label>
+                    <div class="col-sm-10">
+                        {php echo tpl_form_field_multi_image('banner',unserialize($settings['banner']));}
+                        <div class="help-block">是适用分类主题，顶部轮播图片，尺寸大小:750*300</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="form-group col-sm-12">
+            <input type="submit" name="submit" value="提交" class="btn btn-primary col-lg-1" />
+            <input type="hidden" name="token" value="{$_W['token']}" />
+        </div>
+    </form>
+</div>
+{template 'common/footer'}
