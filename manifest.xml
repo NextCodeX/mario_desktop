@@ -41,7 +41,50 @@
 	</bindings>
 	<permissions>
 	</permissions>
-	<install><![CDATA[]]></install>
+	<install><![CDATA[
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for ims_mario_desktop_applist
+-- ----------------------------
+DROP TABLE IF EXISTS `ims_mario_desktop_applist`;
+CREATE TABLE `ims_mario_desktop_applist`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uniacid` int(11) NOT NULL,
+  `indexno` int(11) NULL DEFAULT 1,
+  `title` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `desc` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `img` varchar(300) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `url` varchar(300) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `status` int(2) NOT NULL DEFAULT 1,
+  `type` int(11) NOT NULL DEFAULT 0,
+  `classid` int(11) NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = MyISAM AUTO_INCREMENT = 26 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for ims_mario_desktop_classify
+-- ----------------------------
+DROP TABLE IF EXISTS `ims_mario_desktop_classify`;
+CREATE TABLE `ims_mario_desktop_classify`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uniacid` int(11) NOT NULL,
+  `indexno` int(11) NULL DEFAULT 1,
+  `title` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `desc` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `img` varchar(300) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `url` varchar(300) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `status` int(2) NOT NULL DEFAULT 1,
+  `type` int(11) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = MyISAM AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+SET FOREIGN_KEY_CHECKS = 1;
+
+
+
+]]></install>
 	<uninstall><![CDATA[]]></uninstall>
 	<upgrade><![CDATA[]]></upgrade>
 </manifest>
