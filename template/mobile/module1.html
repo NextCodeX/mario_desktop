@@ -31,9 +31,9 @@
     </ul></div>
   </div>
   <ul class="banner-tit">
+    {loop unserialize($settings['banner']) $index $row}
     <li class=""></li>
-    <li class=""></li>
-    <li class="on"></li>
+    {/loop}
   </ul>
 </div>
 <script type="text/javascript">
