@@ -3,7 +3,7 @@
 	<application setting="true">
 		<name><![CDATA[个性桌面]]></name>
 		<identifie><![CDATA[mario_desktop]]></identifie>
-		<version><![CDATA[1.11]]></version>
+		<version><![CDATA[1.11.1]]></version>
 		<type><![CDATA[services]]></type>
 		<ability><![CDATA[可以自定义设置桌面样式，桌面图标。]]></ability>
 		<description><![CDATA[可以自定义设置桌面样式，桌面图标。]]></description>
